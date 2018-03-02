@@ -28,9 +28,15 @@ namespace TechJobs.Controllers
         public IActionResult Results(SearchJobsViewModel jobsViewModel)
         {
             if (jobsViewModel.Value == null)
+            //if (jobsViewModel.Value == null && jobsViewModel.Column.Equals(JobFieldType.All))
             {
                 jobsViewModel.Jobs = jobData.Jobs;
             }
+
+            //else if (jobsViewModel.Column != JobFieldType.All && jobsViewModel.Value != null)
+            //{
+                //return Redirect(Views/List/Index.cshtml);
+            //}
 
             else if (jobsViewModel.Column.Equals(JobFieldType.All) || jobsViewModel.Value.Equals(""))
             {
